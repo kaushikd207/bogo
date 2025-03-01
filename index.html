@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOGO Offer</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        width: 100%;
+        max-width: 350px;
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .header {
+        text-align: center;
+        font-weight: bold;
+        color: #ff4081;
+        margin-bottom: 10px;
+      }
+      .box {
+        border: 2px solid #ddd;
+        padding: 8px;
+        margin-bottom: 8px;
+        border-radius: 5px;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+      .box.active {
+        border-color: #ff4081;
+        background: #fff0f5;
+        padding: 12px;
+      }
+      .discount {
+        background: #ff4081;
+        color: white;
+        padding: 3px 6px;
+        border-radius: 4px;
+        font-size: 12px;
+        margin-left: 10px;
+      }
+      .popular {
+        position: absolute;
+        top: -10px;
+        right: 10px;
+        background: #ff4081;
+        color: white;
+        padding: 3px 6px;
+        border-radius: 4px;
+        font-size: 12px;
+      }
+      .options {
+        display: none;
+        margin-top: 8px;
+      }
+      .box.active .options {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .dropdown-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .dropdown-container label {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .dropdown-container select {
+        width: 70px;
+        padding: 4px;
+      }
+      .add-to-cart {
+        background: #ff4081;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background 0.3s;
+      }
+      .add-to-cart:hover {
+        background: #e60073;
+      }
+      .price {
+        width: 100px;
+        align-items: center;
+      }
+      .price del {
+        font-size: 12px;
+        color: #999;
+      }
+      .footer {
+        margin-top: 10px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        color: #ff4081;
+        display: flex;
+        justify-content: space-between;
+      }
+      #total-price {
+        color: black;
+      }
+      .unitLine {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">YAY! It's BOGO</div>
+      <div class="box" onclick="toggleBox(this)">
+        <div class="unitLine">
+          <div>
+            <input
+              type="radio"
+              name="unit"
+              onclick="toggleBox(this.parentElement.parentElement)"
+            />
+            1 Unit <span class="discount">10% Off</span>
+          </div>
+          <div class="price"><span>$10.00 USD</span> <del>$24.00 USD</del></div>
+        </div>
+
+        <div class="options">
+          <div class="dropdown-container">
+            <label
+              >#1
+              <select>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+              </select></label
+            >
+            <label
+              >Colour
+              <select>
+                <option>Black</option>
+                <option>Red</option>
+                <option>Blue</option>
+              </select></label
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="box" onclick="toggleBox(this)">
+        <div class="unitLine">
+          <div>
+            <input
+              type="radio"
+              name="unit"
+              onclick="toggleBox(this.parentElement.parentElement)"
+            />
+            2 Unit <span class="discount">20% Off</span>
+            <span class="popular">MOST POPULAR</span>
+          </div>
+          <div class="price"><span>$18.00 USD</span> <del>$24.00 USD</del></div>
+        </div>
+
+        <div class="options">
+          <div class="dropdown-container">
+            <label
+              >#1
+              <select>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+              </select></label
+            >
+            <label
+              >Colour
+              <select>
+                <option>Black</option>
+                <option>Red</option>
+                <option>Blue</option>
+              </select></label
+            >
+          </div>
+          <div class="dropdown-container">
+            <label
+              >#2
+              <select>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+              </select></label
+            >
+            <label
+              >Colour
+              <select>
+                <option>Black</option>
+                <option>Red</option>
+                <option>Blue</option>
+              </select></label
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="box" onclick="toggleBox(this)">
+        <div class="unitLine">
+          <div>
+            <input
+              type="radio"
+              name="unit"
+              onclick="toggleBox(this.parentElement.parentElement)"
+            />
+            3 Unit <span class="discount">30% Off</span>
+          </div>
+          <div class="price"><span>$24.00 USD</span> <del>$24.00 USD</del></div>
+        </div>
+
+        <div class="options">
+          <div class="dropdown-container">
+            <label
+              >#1
+              <select>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+              </select></label
+            >
+            <label
+              >Colour
+              <select>
+                <option>Black</option>
+                <option>Red</option>
+                <option>Blue</option>
+              </select></label
+            >
+          </div>
+          <div class="dropdown-container">
+            <label
+              >#2
+              <select>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+              </select></label
+            >
+            <label
+              >Colour
+              <select>
+                <option>Black</option>
+                <option>Red</option>
+                <option>Blue</option>
+              </select></label
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        Free Delivery <span id="total-price">Total: $18.00 USD</span>
+      </div>
+      <div class="add-to-cart">+ Add to Cart</div>
+    </div>
+
+    <script>
+      function toggleBox(element) {
+        document
+          .querySelectorAll(".box")
+          .forEach((box) => box.classList.remove("active"));
+        element.classList.add("active");
+      }
+    </script>
+  </body>
+</html>
